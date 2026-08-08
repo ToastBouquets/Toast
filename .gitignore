@@ -1,0 +1,10 @@
+# Operating-system / editor junk
+.DS_Store
+Thumbs.db
+*.log
+
+# Local backups & scratch — should NOT be published to the live site
+_backup-prelaunch/
+
+# Legacy build helper — not used by GitHub Pages (the site is plain static HTML)
+src/

@@ -1,0 +1,1978 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Hidden verification page: keep it out of Google and all search engines. -->
+<meta name="robots" content="noindex, nofollow, noarchive, nosnippet">
+<title>Toast Bouquets | Florist &amp; Gift Shop in Gastonia, NC</title>
+<meta name="description" content="Toast Bouquets is a florist and gift shop in Gastonia, NC — handcrafted bouquets, gift baskets, plushies, and wedding and event florals, with delivery across the greater Charlotte area. Get a free quote.">
+<link rel="canonical" href="https://yousefayesh.github.io/Toast/">
+<link rel="icon" type="image/png" href="images/logo-icon.png">
+<link rel="apple-touch-icon" href="images/logo-icon.png">
+
+<!-- Social share preview (Open Graph + Twitter). NOTE: update the domain in the
+     4 URLs below once a custom domain is connected. -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Toast Bouquets">
+<meta property="og:title" content="Toast Bouquets — Florist &amp; Gift Shop in Gastonia, NC">
+<meta property="og:description" content="Handcrafted bouquets, gift baskets, plushies, and event florals. Made to order in Gastonia, NC with delivery across the Charlotte area.">
+<meta property="og:url" content="https://yousefayesh.github.io/Toast/">
+<meta property="og:image" content="https://yousefayesh.github.io/Toast/images/gallery/g02.jpg">
+<meta property="og:image:width" content="825">
+<meta property="og:image:height" content="1100">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Toast Bouquets — Florist &amp; Gift Shop in Gastonia, NC">
+<meta name="twitter:description" content="Handcrafted bouquets, gift baskets, plushies, and event florals. Made to order in Gastonia, NC with delivery across the Charlotte area.">
+<meta name="twitter:image" content="https://yousefayesh.github.io/Toast/images/gallery/g02.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="css/header.css">
+<style>/* Toast Bouquets — brand colors
+   Cream: #F7F1E6 (background) / #FAF6EC (light panels)
+   Dark green: #1F3A2E (primary text/nav/footer)
+   Gold: #D4AF37 (accents, buttons, borders)
+*/
+
+:root {
+  --cream: #F7F1E6;
+  --cream-light: #FDFBF6;
+  --green: #1F3A2E;
+  --green-dark: #142822;
+  --gold: #D4AF37;
+  --gold-light: #D4AF37;
+  --gold-deep: #D4AF37;
+  --text: #2B2B26;
+  --text-soft: #5B5B52;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+  font-family: "Playfair Display", Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  color: var(--green);
+  letter-spacing: 0.3px;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.container {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+.eyebrow {
+  display: inline-block;
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 10px;
+}
+
+section {
+  padding: 96px 0;
+}
+
+.section-head {
+  text-align: center;
+  max-width: 640px;
+  margin: 0 auto 58px;
+}
+
+.section-head h2 {
+  font-size: 2.6rem;
+  margin-bottom: 14px;
+}
+
+.section-head p {
+  color: var(--text-soft);
+  font-size: 1.12rem;
+}
+
+/* Buttons */
+.btn {
+  display: inline-block;
+  padding: 16px 36px;
+  border-radius: 999px;
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0.4px;
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  border: 2px solid transparent;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: var(--gold);
+  color: var(--green-dark);
+  box-shadow: 0 6px 18px rgba(212, 175, 55, 0.35);
+}
+
+.btn-gold:hover {
+  filter: brightness(1.12);
+}
+
+.btn-outline {
+  background: transparent;
+  border-color: var(--cream-light);
+  color: var(--cream-light);
+}
+
+.btn-outline:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.btn-outline-dark {
+  background: transparent;
+  border-color: var(--green);
+  color: var(--green);
+}
+
+.btn-outline-dark:hover {
+  background: var(--green);
+  color: var(--cream-light);
+}
+
+/* Nav & header styles live in css/header.css (shared component) */
+
+/* Hero */
+.hero {
+  background: var(--cream);
+  color: var(--text);
+  padding-top: 130px;
+  position: relative;
+}
+
+.hero-inner {
+  max-width: 1320px;
+  margin: 0 auto;
+  padding: 40px 40px 50px;
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 72px;
+  align-items: start;
+  margin-bottom: 56px;
+}
+
+.hero .eyebrow {
+  color: var(--gold-deep);
+}
+
+.hero h1 {
+  color: var(--green);
+  font-size: 3rem;
+  max-width: 640px;
+  margin: 0 0 22px;
+  line-height: 1.25;
+  text-align: left;
+}
+
+.hero h1 em {
+  font-style: normal;
+  color: var(--gold-deep);
+}
+
+.hero p.subhead {
+  font-size: 1.1rem;
+  color: var(--text-soft);
+  max-width: 520px;
+  margin: 0 0 30px;
+  text-align: left;
+}
+
+.view-work-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  color: var(--green);
+  font-weight: 600;
+  font-size: 0.95rem;
+  border-bottom: 2px solid var(--green);
+  padding-bottom: 4px;
+  transition: color 0.15s ease, border-color 0.15s ease;
+}
+
+.view-work-link:hover {
+  color: var(--gold-deep);
+  border-color: var(--gold-deep);
+}
+
+/* Hero quote card */
+.hero-quote-card {
+  scroll-margin-top: 90px;
+  background: var(--cream-light);
+  border: 2px solid rgba(31, 58, 46, 0.12);
+  border-radius: 14px;
+  padding: 34px;
+  box-shadow: 0 20px 44px rgba(31, 58, 46, 0.12);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.hero-quote-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 20px 44px rgba(31, 58, 46, 0.12), 0 0 0 4px rgba(212, 175, 55, 0.3);
+}
+
+.hero-quote-card .tag {
+  display: block;
+  color: var(--gold-deep);
+  font-size: 0.75rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.hero-quote-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 20px;
+}
+
+.quote-field {
+  width: 100%;
+  padding: 14px 18px;
+  margin-bottom: 14px;
+  border: 1px solid rgba(31, 58, 46, 0.15);
+  border-radius: 10px;
+  font-size: 0.95rem;
+  font-family: inherit;
+  background: #fff;
+  color: var(--text);
+}
+
+.quote-field:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+textarea.quote-field {
+  resize: vertical;
+  min-height: 70px;
+}
+
+.quote-submit {
+  width: 100%;
+  border: none;
+  cursor: pointer;
+  text-align: center;
+}
+
+.quote-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--text-soft);
+  margin-top: 14px;
+}
+
+.quote-success {
+  display: none;
+  text-align: center;
+  padding: 10px 0 20px;
+}
+
+.quote-success.show {
+  display: block;
+}
+
+/* Multi-step quote form */
+.qsteps-progress { display: flex; gap: 6px; margin-bottom: 8px; }
+.qsteps-progress .dot { flex: 1; height: 4px; border-radius: 2px; background: rgba(31,58,46,0.15); transition: background 0.25s ease; }
+.qsteps-progress .dot.active { background: var(--gold); }
+.qstep-label { font-size: 0.75rem; color: var(--text-soft); letter-spacing: 0.3px; margin-bottom: 16px; }
+.qstep-label b { color: var(--green); }
+.qstep { animation: qfade 0.28s ease; }
+.qstep[hidden] { display: none; }
+@keyframes qfade { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: none; } }
+.qstep label.fl { display: block; font-size: 0.78rem; font-weight: 600; color: var(--green); letter-spacing: 0.3px; margin-bottom: 6px; }
+.qstep label.fl .req { color: var(--gold-deep); }
+.qstep-nav { display: flex; gap: 10px; align-items: stretch; }
+.qstep-nav .quote-submit, .qstep-nav .qnext { flex: 1; margin: 0; }
+.qnext { border: none; cursor: pointer; }
+.qback {
+  background: transparent; border: 2px solid rgba(31,58,46,0.2); color: var(--green);
+  border-radius: 999px; padding: 0 22px; font-weight: 600; font-size: 0.92rem;
+  font-family: inherit; cursor: pointer; white-space: nowrap; transition: border-color 0.15s ease;
+}
+.qback:hover { border-color: var(--green); }
+select.quote-field { appearance: none; -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%231F3A2E' d='M6 8L0 0h12z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat; background-position: right 16px center; padding-right: 40px; }
+
+/* Date field: native date inputs (esp. iOS Safari) otherwise render shorter and
+   vertically misaligned versus the text inputs — normalize height + alignment. */
+input[type="date"].quote-field {
+  -webkit-appearance: none;
+  appearance: none;
+  min-height: 52px;
+  line-height: 1.4;
+  text-align: left;
+  color: var(--text);
+}
+input[type="date"].quote-field::-webkit-date-and-time-value { text-align: left; margin: 0; }
+input[type="date"].quote-field::-webkit-calendar-picker-indicator { opacity: 0.55; cursor: pointer; }
+
+.quote-success .stars {
+  color: var(--gold);
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+}
+
+.hero-stats {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  border-top: 1px solid rgba(31, 58, 46, 0.15);
+  padding-top: 36px;
+}
+
+.stat {
+  text-align: center;
+  flex: 1;
+  min-width: 120px;
+}
+
+.stat .num {
+  font-family: "Playfair Display", Georgia, serif;
+  font-weight: 600;
+  font-size: 1.9rem;
+  color: var(--gold-deep);
+  display: block;
+}
+
+.stat .label {
+  font-size: 0.82rem;
+  color: var(--text-soft);
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+/* Gallery — category cards */
+#gallery .container {
+  max-width: 1360px;
+}
+
+.category-grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.cat-card {
+  flex: 1 1 230px;
+  max-width: 340px;
+  position: relative;
+  aspect-ratio: 4 / 5;
+  border: none;
+  padding: 0;
+  margin: 0;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  background: var(--green);
+  box-shadow: 0 12px 28px rgba(31, 58, 46, 0.16);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.cat-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px rgba(31, 58, 46, 0.26);
+}
+
+.cat-card img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.cat-card:hover img {
+  transform: scale(1.07);
+}
+
+.cat-title {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 18px 16px 34px;
+  z-index: 2;
+  font-family: "Playfair Display", Georgia, serif;
+  font-size: 1.35rem;
+  color: #fff;
+  text-align: center;
+  letter-spacing: 0.4px;
+  background: linear-gradient(to bottom, rgba(20, 40, 34, 0.78), rgba(20, 40, 34, 0));
+  transition: letter-spacing 0.25s ease;
+}
+
+.cat-card:hover .cat-title {
+  letter-spacing: 1.5px;
+}
+
+.cat-count {
+  position: absolute;
+  bottom: 14px;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  text-align: center;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+}
+
+/* Empty category (Funerals) */
+.cat-empty {
+  cursor: default;
+  background: var(--green);
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.cat-empty:hover {
+  transform: none;
+  box-shadow: 0 12px 28px rgba(31, 58, 46, 0.16);
+}
+
+.cat-empty .cat-title {
+  position: static;
+  padding: 0 0 8px;
+  background: none;
+  color: var(--cream-light);
+}
+
+.cat-empty .cat-count {
+  position: static;
+  color: #8FA098;
+}
+
+.gallery-cta {
+  text-align: center;
+  margin-top: 44px;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 9000;
+  background: rgba(15, 26, 22, 0.93);
+  -webkit-backdrop-filter: blur(4px);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.25s ease, visibility 0.25s ease;
+}
+
+.lightbox.open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lb-stage {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+}
+
+.lb-stage img {
+  max-width: 90vw;
+  max-height: 80vh;
+  width: auto;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 30px 70px rgba(0, 0, 0, 0.5);
+  transition: opacity 0.15s ease;
+}
+
+.lb-stage img.lb-loading {
+  opacity: 0.35;
+}
+
+.lb-stage figcaption {
+  color: var(--cream);
+  font-family: "Playfair Display", Georgia, serif;
+  margin-top: 16px;
+  font-size: 1.15rem;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.lb-count {
+  display: block;
+  margin-top: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 0.72rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+.lb-close {
+  position: absolute;
+  top: 20px;
+  right: 26px;
+  background: none;
+  border: none;
+  color: var(--cream);
+  font-size: 2.4rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.lb-close:hover {
+  color: var(--gold);
+}
+
+.lb-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(247, 241, 230, 0.1);
+  border: 1px solid rgba(212, 175, 55, 0.5);
+  color: var(--cream);
+  width: 54px;
+  height: 54px;
+  border-radius: 50%;
+  font-size: 1.9rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s ease, color 0.15s ease;
+}
+
+.lb-nav:hover {
+  background: var(--gold);
+  color: var(--green-dark);
+}
+
+.lb-prev { left: 24px; }
+.lb-next { right: 24px; }
+
+body.lb-open {
+  overflow: hidden;
+}
+
+/* Services */
+.services {
+  background: var(--cream);
+  color: var(--text);
+}
+
+.services .section-head h2 {
+  color: var(--green);
+}
+
+.services .section-head p {
+  color: var(--text-soft);
+}
+
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 28px;
+}
+
+.service-card {
+  background: var(--green);
+  border: 2px solid rgba(212, 175, 55, 0.35);
+  border-radius: 8px;
+  padding: 36px 28px;
+  text-align: center;
+  box-shadow: 0 12px 28px rgba(20, 40, 34, 0.18), 0 0 0 0 rgba(212, 175, 55, 0);
+  transition: border-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(20, 40, 34, 0.26), 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.service-icon {
+  width: 52px;
+  height: 52px;
+  margin: 0 auto 20px;
+  color: var(--gold);
+}
+
+.service-card h3 {
+  color: var(--cream-light);
+  font-size: 1.25rem;
+  margin-bottom: 10px;
+}
+
+.service-card p {
+  color: #C9D0CB;
+  font-size: 0.92rem;
+}
+
+/* Reviews */
+.reviews {
+  background: var(--cream);
+}
+
+/* Section divider — thin short gold line at the top of a section */
+.section-divider {
+  width: 64px;
+  height: 2px;
+  margin: 0 auto 44px;
+  background: var(--gold);
+  border-radius: 2px;
+  opacity: 0.9;
+}
+
+.reviews-track-wrap {
+  overflow: hidden;
+  width: 100%;
+  margin-top: 44px;
+  -webkit-mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+  mask-image: linear-gradient(to right, transparent, black 6%, black 94%, transparent);
+}
+
+.reviews-track {
+  display: flex;
+  gap: 28px;
+  width: max-content;
+  padding: 8px 4px 34px;
+  animation: reviews-scroll 75s linear infinite;
+}
+
+.reviews-track:hover {
+  animation-play-state: paused;
+}
+
+@keyframes reviews-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+.review-card {
+  flex: 0 0 320px;
+  background: var(--green);
+  border: 1px solid rgba(212, 175, 55, 0.28);
+  border-radius: 12px;
+  padding: 30px;
+  box-shadow: 0 10px 22px rgba(20, 40, 34, 0.22);
+}
+
+.review-card .stars {
+  color: var(--gold);
+  font-size: 1.05rem;
+  letter-spacing: 2px;
+  margin-bottom: 14px;
+}
+
+.review-text {
+  color: var(--cream-light);
+  font-size: 0.95rem;
+  line-height: 1.55;
+  margin-bottom: 22px;
+  min-height: 95px;
+}
+
+.reviewer {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.review-avatar {
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: var(--gold);
+  color: var(--green-dark);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 0.95rem;
+  flex-shrink: 0;
+}
+
+.reviewer-name {
+  font-weight: 600;
+  color: var(--cream-light);
+  font-size: 0.9rem;
+}
+
+.reviewer-source {
+  font-size: 0.78rem;
+  color: #C9D0CB;
+}
+
+/* Location */
+.location {
+  background: var(--cream);
+}
+
+.location-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 40px;
+  align-items: stretch;
+  margin-bottom: 0;
+}
+
+.location-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.location-card {
+  background: var(--green);
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 8px;
+  padding: 30px;
+  box-shadow: 0 12px 26px rgba(20, 40, 34, 0.16);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.location-card:hover {
+  border-color: var(--gold);
+  box-shadow: 0 12px 26px rgba(20, 40, 34, 0.16), 0 0 0 3px rgba(212, 175, 55, 0.3);
+}
+
+.location-card h3 {
+  font-size: 1.15rem;
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--cream-light);
+}
+
+.location-card p {
+  color: #C9D0CB;
+  font-size: 0.95rem;
+}
+
+.location-card a {
+  color: var(--cream-light);
+  font-weight: 600;
+  text-decoration: none;
+  position: relative;
+  display: inline-block;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.location-card a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.location-card a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.location-card a:hover::after {
+  transform: scaleX(1);
+}
+
+/* Service area map (Leaflet) */
+.service-map-wrap {
+  position: relative;
+  height: 100%;
+}
+
+.service-map {
+  width: 100%;
+  height: 100%;
+  min-height: 340px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 20px 44px rgba(31, 58, 46, 0.2);
+  border: 1px solid rgba(212, 175, 55, 0.35);
+  background: var(--cream-light);
+}
+
+.map-directions-btn {
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  z-index: 500;
+  background: var(--green);
+  color: var(--cream-light);
+  border: 1px solid var(--gold);
+  padding: 10px 18px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  white-space: nowrap;
+  box-shadow: 0 10px 22px rgba(20, 40, 34, 0.3);
+  transition: transform 0.2s ease, background 0.2s ease;
+}
+
+.map-directions-btn:hover {
+  transform: translateY(-2px);
+  background: var(--green-dark);
+}
+
+/* City pin markers */
+.city-pin-dot {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--gold);
+  border: 2px solid var(--green-dark);
+  box-shadow: 0 2px 6px rgba(20, 40, 34, 0.4);
+}
+
+.leaflet-tooltip.city-tooltip {
+  background: var(--green-dark);
+  color: var(--cream-light);
+  border: 1px solid var(--gold);
+  border-radius: 6px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 600;
+  font-size: 0.85rem;
+  padding: 6px 12px;
+  box-shadow: 0 6px 16px rgba(20, 40, 34, 0.3);
+}
+
+.leaflet-tooltip.city-tooltip::before {
+  border-top-color: var(--green-dark);
+}
+
+/* Shop marker (always-visible dark pill, links out to Google Maps) */
+.leaflet-tooltip.shop-tooltip {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  pointer-events: auto;
+}
+
+.leaflet-tooltip.shop-tooltip a {
+  display: inline-block;
+  background: var(--green-dark);
+  color: var(--cream-light);
+  border: 1px solid var(--gold);
+  border-radius: 999px;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  font-size: 0.85rem;
+  padding: 8px 16px;
+  text-decoration: none;
+  box-shadow: 0 8px 18px rgba(20, 40, 34, 0.4);
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, box-shadow 0.15s ease;
+}
+
+.leaflet-tooltip.shop-tooltip:hover a {
+  transform: translateY(-3px);
+  background: var(--green);
+  box-shadow: 0 14px 26px rgba(20, 40, 34, 0.5);
+}
+
+.leaflet-tooltip.shop-tooltip::before {
+  display: none;
+}
+
+.leaflet-control-zoom-reset {
+  display: block;
+  width: 26px;
+  height: 26px;
+  line-height: 26px;
+  text-align: center;
+  background: #fff;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-decoration: none;
+}
+
+.leaflet-control-zoom-reset:hover {
+  background: #f4f4f4;
+  color: #333;
+}
+
+.leaflet-control-attribution {
+  font-size: 9px !important;
+  padding: 0 4px !important;
+  opacity: 0.6;
+  line-height: 14px !important;
+}
+
+/* Final CTA */
+.final-cta {
+  background:
+    linear-gradient(160deg, rgba(20, 40, 34, 0.94), rgba(31, 58, 46, 0.9));
+  color: var(--cream-light);
+  text-align: center;
+}
+
+.final-cta h2 {
+  color: var(--cream-light);
+  font-size: 2.3rem;
+  margin-bottom: 16px;
+}
+
+.final-cta p {
+  color: #D8DED9;
+  max-width: 520px;
+  margin: 0 auto 34px;
+}
+
+/* Footer */
+footer {
+  background: var(--green-dark);
+  color: #C9D0CB;
+  padding: 88px 0 0;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr 1fr;
+  gap: 72px;
+  padding-bottom: 60px;
+}
+
+.footer-brand {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.footer-logo {
+  margin-bottom: 20px;
+}
+
+.footer-logo img {
+  height: 260px;
+  width: auto;
+  max-width: 100%;
+}
+
+.footer-subtitle {
+  font-size: 0.8rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.footer-quote-btn {
+  width: 100%;
+  max-width: 360px;
+  text-align: center;
+  margin-bottom: 14px;
+}
+
+.footer-phone-btn {
+  width: 100%;
+  max-width: 360px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 14px 24px;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  border-radius: 999px;
+  color: var(--cream-light);
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.5px;
+  transition: border-color 0.15s ease, background 0.15s ease, color 0.15s ease;
+}
+
+.footer-phone-btn:hover {
+  border-color: var(--gold);
+  background: rgba(212, 175, 55, 0.1);
+  color: var(--gold);
+}
+
+.footer-phone-btn svg {
+  width: 18px;
+  height: 18px;
+  flex-shrink: 0;
+}
+
+.footer-col h4 {
+  color: var(--cream-light);
+  font-size: 0.82rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 30px;
+}
+
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+}
+
+.footer-links a {
+  font-size: 1.02rem;
+  color: #C9D0CB;
+  position: relative;
+  align-self: flex-start;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.footer-links a::after,
+.contact-item a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -3px;
+  width: 100%;
+  height: 2px;
+  background: var(--gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footer-links a:hover::after,
+.contact-item a:hover::after {
+  transform: scaleX(1);
+}
+
+.footer-contact-list {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.contact-item {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.contact-label {
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: var(--gold);
+  font-weight: 700;
+}
+
+.contact-item a, .contact-item p {
+  color: var(--cream-light);
+  font-size: 1rem;
+  line-height: 1.45;
+  transition: color 0.2s ease, transform 0.2s ease;
+}
+
+.contact-item a {
+  position: relative;
+  align-self: flex-start;
+}
+
+.contact-item a:hover {
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+.footer-bottom {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding: 34px 0 30px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  font-size: 0.82rem;
+  color: #8FA098;
+}
+
+.footer-legal {
+  display: flex;
+  gap: 28px;
+}
+
+.footer-legal a {
+  color: #8FA098;
+  transition: color 0.15s ease;
+}
+
+.footer-legal a:hover {
+  color: var(--gold);
+}
+
+/* Mobile */
+@media (max-width: 860px) {
+  .container { padding: 0 20px; }
+  .hero-grid { grid-template-columns: 1fr; gap: 40px; }
+  .hero h1 { font-size: 2.2rem; }
+  .hero p.subhead { display: none; }   /* hidden on mobile to give the quote form more room */
+  .hero-stats { gap: 24px; }
+  .stat { min-width: 45%; }
+
+  .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+  .category-grid { gap: 12px; }
+  .cat-card { flex: 0 0 calc(50% - 6px); }
+  .lb-nav { width: 44px; height: 44px; font-size: 1.4rem; }
+  .lb-prev { left: 8px; }
+  .lb-next { right: 8px; }
+  .services-grid { grid-template-columns: 1fr; }
+  .location-grid { grid-template-columns: 1fr; }
+  .map-directions-btn { font-size: 0.75rem; padding: 8px 14px; right: 10px; top: 10px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .footer-logo img { height: 200px; }
+  .footer-quote-btn, .footer-phone-btn { max-width: 100%; }
+  .footer-bottom { flex-direction: column; align-items: flex-start; gap: 14px; }
+
+  .hero-inner { padding: 30px 20px 40px; }
+  .hero-quote-card { padding: 26px 20px; }
+  .quote-field { font-size: 16px; }   /* 16px stops iOS from zooming on focus */
+
+  section { padding: 60px 0; }
+}
+
+@media (max-width: 400px) {
+  .hero h1 { font-size: 1.95rem; }
+  .section-head h2 { font-size: 2rem; }
+  .hero-quote-card { padding: 22px 16px; }
+  .qstep-nav { gap: 8px; }
+  .qback { padding: 0 15px; font-size: 0.88rem; }
+  .hero-stats .stat .num { font-size: 1.6rem; }
+}</style>
+</head>
+<body>
+
+<script src="js/header-verify.js"></script>
+
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-grid">
+      <div class="hero-content">
+        <span class="eyebrow">Gastonia, NC's #1 Rated Florist</span>
+        <h1>Handcrafted Bouquets &amp; Gifts for Every <em>Moment That Matters</em></h1>
+        <p class="subhead">Our flowers are flown in fresh from Ecuador, then hand-arranged into bouquets, gift baskets, and plushies — custom made for weddings, picnics, funerals, and everyday surprises. Located in Gastonia, with delivery across North Carolina.</p>
+      </div>
+
+    </div>
+
+    <div class="hero-stats">
+      <div class="stat">
+        <span class="num">1:1</span>
+        <span class="label">Custom Orders</span>
+      </div>
+      <div class="stat">
+        <span class="num">5&#9733;</span>
+        <span class="label">5-Star Reviews</span>
+      </div>
+      <div class="stat">
+        <span class="num">3+</span>
+        <span class="label">Years Experience</span>
+      </div>
+      <div class="stat">
+        <span class="num">100%</span>
+        <span class="label">Satisfaction Rate</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section id="reviews" class="reviews">
+  <div class="container">
+    <div class="section-divider"></div>
+    <div class="section-head">
+      <span class="eyebrow">Reputation</span>
+      <h2>What Our Customers Say</h2>
+      <p>A few words from real customers</p>
+    </div>
+  </div>
+  <div class="reviews-track-wrap">
+    <div class="reviews-track">
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Toast Bouquets exceeded my expectations! The arrangement was absolutely beautiful, fresh, and thoughtfully put together. Every detail was perfect — you can tell they truly care about the quality of their work."</p>
+        <div class="reviewer">
+          <div class="review-avatar">AM</div>
+          <div>
+            <div class="reviewer-name">Audrey M.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We had a wonderful experience with them. They were very professional and the service was awesome. Highly recommend."</p>
+        <div class="reviewer">
+          <div class="review-avatar">SD</div>
+          <div>
+            <div class="reviewer-name">Shawn D.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great guy and great service. Went in not sure what I was looking for and the owner helped me out completely — I got to surprise my mom with amazing flowers."</p>
+        <div class="reviewer">
+          <div class="review-avatar">FJ</div>
+          <div>
+            <div class="reviewer-name">Faisal J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Toast Bouquet is the best place I've ever seen, and the customer service is very nice."</p>
+        <div class="reviewer">
+          <div class="review-avatar">NS</div>
+          <div>
+            <div class="reviewer-name">Niveen S.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Amazing flowers — love his work, and so nice to work with."</p>
+        <div class="reviewer">
+          <div class="review-avatar">YJ</div>
+          <div>
+            <div class="reviewer-name">Yara J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"I had an excellent experience with Toast Bouquets! The flowers were absolutely beautiful, incredibly fresh, and lasted well over two weeks, which really speaks to their quality. Ali was professional, friendly, and extremely helpful."</p>
+        <div class="reviewer">
+          <div class="review-avatar">MZ</div>
+          <div>
+            <div class="reviewer-name">Majd Z.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great overall experience. Thank you, Toast!"</p>
+        <div class="reviewer">
+          <div class="review-avatar">JW</div>
+          <div>
+            <div class="reviewer-name">Jorden W.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Best bouquets in Gastonia! Great customer service and quick — I had a last-minute order and he finished it in less than two hours."</p>
+        <div class="reviewer">
+          <div class="review-avatar">AJ</div>
+          <div>
+            <div class="reviewer-name">A.J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Bought a bouquet yesterday and the owner is one of the kindest people I've met — unbelievably helpful, and good at his craft too. Wonderful thing he's got going on."</p>
+        <div class="reviewer">
+          <div class="review-avatar">G</div>
+          <div>
+            <div class="reviewer-name">Giovanni</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Toast Bouquets exceeded my expectations! The arrangement was absolutely beautiful, fresh, and thoughtfully put together. Every detail was perfect — you can tell they truly care about the quality of their work."</p>
+        <div class="reviewer">
+          <div class="review-avatar">AM</div>
+          <div>
+            <div class="reviewer-name">Audrey M.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"We had a wonderful experience with them. They were very professional and the service was awesome. Highly recommend."</p>
+        <div class="reviewer">
+          <div class="review-avatar">SD</div>
+          <div>
+            <div class="reviewer-name">Shawn D.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great guy and great service. Went in not sure what I was looking for and the owner helped me out completely — I got to surprise my mom with amazing flowers."</p>
+        <div class="reviewer">
+          <div class="review-avatar">FJ</div>
+          <div>
+            <div class="reviewer-name">Faisal J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Toast Bouquet is the best place I've ever seen, and the customer service is very nice."</p>
+        <div class="reviewer">
+          <div class="review-avatar">NS</div>
+          <div>
+            <div class="reviewer-name">Niveen S.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Amazing flowers — love his work, and so nice to work with."</p>
+        <div class="reviewer">
+          <div class="review-avatar">YJ</div>
+          <div>
+            <div class="reviewer-name">Yara J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"I had an excellent experience with Toast Bouquets! The flowers were absolutely beautiful, incredibly fresh, and lasted well over two weeks, which really speaks to their quality. Ali was professional, friendly, and extremely helpful."</p>
+        <div class="reviewer">
+          <div class="review-avatar">MZ</div>
+          <div>
+            <div class="reviewer-name">Majd Z.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Great overall experience. Thank you, Toast!"</p>
+        <div class="reviewer">
+          <div class="review-avatar">JW</div>
+          <div>
+            <div class="reviewer-name">Jorden W.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Best bouquets in Gastonia! Great customer service and quick — I had a last-minute order and he finished it in less than two hours."</p>
+        <div class="reviewer">
+          <div class="review-avatar">AJ</div>
+          <div>
+            <div class="reviewer-name">A.J.</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="review-card" aria-hidden="true">
+        <div class="stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div>
+        <p class="review-text">"Bought a bouquet yesterday and the owner is one of the kindest people I've met — unbelievably helpful, and good at his craft too. Wonderful thing he's got going on."</p>
+        <div class="reviewer">
+          <div class="review-avatar">G</div>
+          <div>
+            <div class="reviewer-name">Giovanni</div>
+            <div class="reviewer-source">Google Review</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services">
+  <div class="container">
+    <div class="section-divider"></div>
+    <div class="section-head">
+      <span class="eyebrow">What We Make</span>
+      <h2>Services</h2>
+      <p>Every order is built by hand and made to order — pick an occasion or tell us your vision.</p>
+    </div>
+    <div class="services-grid">
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 12c-2 0-3.5-1.5-3.5-3.5S10 5 12 5s3.5 1.5 3.5 3.5S14 12 12 12z"/><path d="M12 12c-2 2-2 4-2 6M12 12c2 2 2 4 2 6M12 12V4M12 6c-1.5-1.5-4-1.5-4 0.5S10.5 8.5 12 8.5M12 6c1.5-1.5 4-1.5 4 0.5S13.5 8.5 12 8.5"/></svg>
+        <h3>Bouquets</h3>
+        <p>Fresh, hand-tied bouquets for birthdays, anniversaries, or just because.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M4 10h16l-1.5 9a2 2 0 0 1-2 1.7H7.5a2 2 0 0 1-2-1.7L4 10z"/><path d="M2 10h20M8 10V8a4 4 0 0 1 8 0v2"/></svg>
+        <h3>Gift Baskets</h3>
+        <p>Curated baskets mixing blooms with treats, self-care, and keepsakes.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><circle cx="12" cy="9" r="5"/><circle cx="7" cy="7" r="2"/><circle cx="17" cy="7" r="2"/><path d="M9 17.5c0 1.4 1.3 2.5 3 2.5s3-1.1 3-2.5"/></svg>
+        <h3>Plushies</h3>
+        <p>Soft plushies paired with florals for an extra-sweet surprise.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 21c-4-3-8-6.5-8-11a5 5 0 0 1 8-4 5 5 0 0 1 8 4c0 4.5-4 8-8 11z"/></svg>
+        <h3>Weddings</h3>
+        <p>Bridal bouquets, centerpieces, and full floral design for your big day.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M3 12l9-9 9 9M5 10v10h14V10"/></svg>
+        <h3>Events</h3>
+        <p>Styled picnics, baby showers, proposals, gender reveals &amp; more — set with fresh flowers.</p>
+      </div>
+
+      <div class="service-card">
+        <svg class="service-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.3"><path d="M12 3c-2 3-4 5-4 8a4 4 0 0 0 8 0c0-3-2-5-4-8z"/><path d="M6 21h12"/></svg>
+        <h3>Funerals</h3>
+        <p>Respectful, thoughtfully arranged sympathy flowers and standing sprays.</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="gallery">
+  <div class="container">
+    <div class="section-divider"></div>
+    <div class="section-head">
+      <span class="eyebrow">Our Work</span>
+      <h2>Gallery</h2>
+      <p>Browse our work by category — tap one to slide through the photos.</p>
+    </div>
+    <div class="category-grid">
+      <button class="cat-card" type="button" data-title="Bouquets" data-images="images/gallery/g01.jpg|Pink &amp; white rose bouquet;images/gallery/g02.jpg|Red rose celebration bouquet;images/gallery/g19.jpg|White rose &amp; money bouquet;images/gallery/g08.jpg|Pink peony bouquet;images/gallery/g13.jpg|Red rose bouquet;images/gallery/g05.jpg|Cream roses with plush;images/gallery/g10.jpg|Ivory roses with plush;images/gallery/g15.jpg|Graduation bear bouquet;images/gallery/g20.jpg|White rose &amp; hydrangea bouquet;images/gallery/g21.jpg|Pink rose &amp; blue hydrangea vase;images/gallery/g22.jpg|Yellow rose &amp; sunflower bouquet;images/gallery/g23.jpg|Custom bouquets ready for delivery;images/gallery/g24.jpg|Giant pink rose bouquet;images/gallery/g25.jpg|Pink &amp; magenta ribbon rose bouquet;images/gallery/g26.jpg|Pink rose &amp; lily bouquet">
+        <img src="images/gallery/g01.jpg" alt="Bouquets" loading="lazy">
+        <span class="cat-title">Bouquets</span>
+        <span class="cat-count">15 photos</span>
+      </button>
+      <button class="cat-card" type="button" data-title="Gift Baskets" data-images="images/gallery/g04.jpg|Luxury floral gift basket;images/gallery/g11.jpg|Spa &amp; bloom gift basket">
+        <img src="images/gallery/g04.jpg" alt="Gift Baskets" loading="lazy">
+        <span class="cat-title">Gift Baskets</span>
+        <span class="cat-count">2 photos</span>
+      </button>
+      <button class="cat-card" type="button" data-title="Events" data-images="images/gallery/g06.jpg|Lakeside picnic;images/gallery/g16.jpg|Park picnic;images/gallery/g18.jpg|Picnic under the willows;images/gallery/g09.jpg|Proposal picnic;images/gallery/g12.jpg|Candlelit dinner setup;images/gallery/g14.jpg|Baby shower styling;images/gallery/g17.jpg|Gender reveal setup">
+        <img src="images/gallery/g06.jpg" alt="Events" loading="lazy">
+        <span class="cat-title">Events</span>
+        <span class="cat-count">7 photos</span>
+      </button>
+      <button class="cat-card" type="button" data-title="Weddings" data-images="images/gallery/g07.jpg|Bridal bouquet;images/gallery/g03.jpg|Wedding stage florals;images/gallery/g27.jpg|White rose bridal bouquet;images/gallery/g28.jpg|Calla lily &amp; rose bridal bouquet;images/gallery/g29.jpg|White rose boutonnieres">
+        <img src="images/gallery/g07.jpg" alt="Weddings" loading="lazy">
+        <span class="cat-title">Weddings</span>
+        <span class="cat-count">5 photos</span>
+      </button>
+      <button class="cat-card" type="button" data-title="Funerals" data-images="images/gallery/g30.jpg|Red, white &amp; blue casket spray">
+        <img src="images/gallery/g30.jpg" alt="Funerals" loading="lazy">
+        <span class="cat-title">Funerals</span>
+        <span class="cat-count">1 photo</span>
+      </button>
+    </div>
+  </div>
+</section>
+
+<section id="location" class="location">
+  <div class="container">
+    <div class="section-divider"></div>
+    <div class="section-head">
+      <span class="eyebrow">Find Us</span>
+      <h2>Location &amp; Delivery</h2>
+      <p>Based in Gastonia, NC — delivering across the greater Charlotte metro.</p>
+    </div>
+    <div class="location-grid">
+      <div class="location-cards">
+        <div class="location-card">
+          <h3>Based In</h3>
+          <p>2733 E Ozark Ave<br>Gastonia, North Carolina 28054</p>
+        </div>
+        <div class="location-card">
+          <h3>Delivery &amp; Drop-Off</h3>
+          <p>Local delivery and drop-off available across Gastonia and the greater Charlotte metro. Delivery zone and fees confirmed when you request your quote.</p>
+        </div>
+        <div class="location-card">
+          <h3>Contact</h3>
+          <p>Call/Text: (980) 213-1254<br>
+          Email: toastbouquets@gmail.com<br>
+          Instagram: @toastbouquets</p>
+        </div>
+      </div>
+
+      <div class="service-map-wrap">
+        <div id="serviceMap" class="service-map" aria-label="Interactive map of our service area"></div>
+    </div>
+  </div>
+</section>
+
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="footer-logo"><img src="images/footer-logo.png" alt="Toast Bouquets"></div>
+        <p class="footer-subtitle">Gastonia, NC&rsquo;s #1 Rated Florist</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Links</h4>
+        <nav class="footer-links" id="footerQuickLinks">
+          <a href="#reviews">Reviews</a>
+          <a href="#services">Services</a>
+          <a href="#gallery">Gallery</a>
+          <a href="#location">Location</a>
+        </nav>
+      </div>
+      <div class="footer-col">
+        <h4>Contact</h4>
+        <div class="footer-contact-list">
+          <div class="contact-item">
+            <span class="contact-label">Phone</span>
+            <p>(980) 213-1254</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Email</span>
+            <p>toastbouquets@gmail.com</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Hours</span>
+            <p>Tuesday&ndash;Sunday<br>9:00 AM&ndash;6:00 PM</p>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Location</span>
+            <p>2733 E Ozark Avenue<br>Gastonia, North Carolina 28054</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>&copy; 2026 Toast Bouquets LLC. All Rights Reserved. Gastonia, North Carolina.</p>
+      <div class="footer-legal">
+        <a href="privacy-policy.html">Privacy Policy</a>
+        <a href="terms-of-service.html">Terms of Service</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" id="lbClose" aria-label="Close">&times;</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Previous">&#8249;</button>
+  <figure class="lb-stage">
+    <img id="lbImg" alt="">
+    <figcaption><span id="lbCap"></span><span class="lb-count" id="lbCount"></span></figcaption>
+  </figure>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Next">&#8250;</button>
+</div>
+
+<script>// Keep footer Quick Links in sync with the main nav automatically —
+// any nav tab added in the future shows up here without touching the footer.
+const footerQuickLinks = document.getElementById('footerQuickLinks');
+if (footerQuickLinks) {
+  const navItems = Array.from(document.querySelectorAll('#navLinks a'))
+    .filter((a) => !a.classList.contains('btn')
+      && !a.closest('.menu-only')
+      && (a.getAttribute('href') || '').indexOf('tel:') !== 0);
+  if (navItems.length) {
+    footerQuickLinks.innerHTML = '';
+    navItems.forEach((a) => {
+      const link = document.createElement('a');
+      link.href = a.getAttribute('href');
+      link.textContent = a.textContent.trim();
+      footerQuickLinks.appendChild(link);
+    });
+  }
+}
+
+// The Get-a-Quote form submission + validation is handled by js/quote-form.js
+// (it saves to your Supabase database, or to this browser in demo mode).
+
+// Service area map (Leaflet)
+const mapEl = document.getElementById('serviceMap');
+if (mapEl && window.L) {
+  const shop = [35.2465, -81.1450]; // 2733 E Ozark Ave, Gastonia, NC 28054
+
+  const cities = [
+    ['Charlotte', 35.2271, -80.8431],
+    ['Huntersville', 35.4107, -80.8428],
+    ['Cornelius', 35.4868, -80.8595],
+    ['Davidson', 35.4993, -80.8487],
+    ['Mooresville', 35.5849, -80.8101],
+    ['Concord', 35.4088, -80.5795],
+    ['Kannapolis', 35.4874, -80.6217],
+    ['Gastonia', 35.2621, -81.1873],
+    ['Belmont', 35.2452, -81.0334],
+    ['Matthews', 35.1168, -80.7237],
+    ['Mint Hill', 35.1793, -80.6487],
+    ['Indian Trail', 35.0768, -80.6659],
+    ['Pineville', 35.0857, -80.8929],
+    ['Waxhaw', 34.9235, -80.7443],
+    ['Rock Hill', 34.9249, -81.0251]
+  ];
+
+  const coverageOutline = [
+    [35.62, -80.82],
+    [35.52, -80.58],
+    [35.30, -80.55],
+    [34.98, -80.62],
+    [34.87, -80.75],
+    [34.87, -81.08],
+    [35.10, -81.20],
+    [35.28, -81.22],
+    [35.45, -81.05]
+  ];
+
+  // Non-interactive map: a static display of the service area. All pan/zoom
+  // gestures are disabled so it never hijacks page scroll (especially on mobile).
+  const map = L.map('serviceMap', {
+    scrollWheelZoom: false,
+    doubleClickZoom: false,
+    boxZoom: false,
+    dragging: false,
+    touchZoom: false,
+    keyboard: false,
+    zoomControl: false,
+    tap: false,
+    inertia: false,
+    zoomSnap: 0.5,
+    fadeAnimation: true
+  });
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors',
+    maxZoom: 16,
+    updateWhenZooming: false,
+    keepBuffer: 4
+  }).addTo(map);
+
+  L.polygon(coverageOutline, {
+    color: '#1F3A2E',
+    weight: 2.5,
+    fillColor: '#1F3A2E',
+    fillOpacity: 0.12
+  }).addTo(map);
+
+  cities.forEach(([name, lat, lon]) => {
+    L.circleMarker([lat, lon], {
+      radius: 8,
+      color: '#1F3A2E',
+      weight: 2,
+      fillColor: '#D4AF37',
+      fillOpacity: 1
+    })
+      .addTo(map)
+      .bindTooltip(name, { className: 'city-tooltip', direction: 'top', offset: [0, -6] });
+  });
+
+  const shopMarker = L.circleMarker(shop, {
+    radius: 9,
+    color: '#D4AF37',
+    weight: 3,
+    fillColor: '#142822',
+    fillOpacity: 1
+  }).addTo(map);
+  shopMarker.bindTooltip(
+    '<a href="https://share.google/K1XaUEQSZYnH6Ug1w" target="_blank" rel="noopener">Toast Bouquets</a>',
+    { className: 'shop-tooltip', direction: 'top', offset: [0, -8], permanent: true, interactive: true }
+  );
+
+  const bounds = L.latLngBounds(cities.map((c) => [c[1], c[2]]).concat([shop]));
+
+  map.fitBounds(bounds, { padding: [40, 40] });
+}
+
+const lightbox = document.getElementById('lightbox');
+if (lightbox) {
+  const cards = Array.from(document.querySelectorAll('.cat-card'));
+  const lbImg = document.getElementById('lbImg');
+  const lbCap = document.getElementById('lbCap');
+  const lbCount = document.getElementById('lbCount');
+  let gallery = [];
+  let current = 0;
+
+  const parseImages = (str) => {
+    if (!str) return [];
+    return str.split(';').map((s) => {
+      const [full, cap] = s.split('|');
+      return { full: full.trim(), cap: (cap || '').trim() };
+    });
+  };
+
+  const preloaded = {};
+  const preload = (src) => {
+    if (preloaded[src]) return;
+    const im = new Image();
+    im.src = src;
+    preloaded[src] = im;
+  };
+
+  const show = (i) => {
+    if (!gallery.length) return;
+    current = (i + gallery.length) % gallery.length;
+    const entry = gallery[current];
+    lbCap.textContent = entry.cap;
+    lbCount.textContent = gallery.length > 1 ? (current + 1) + ' / ' + gallery.length : '';
+
+    const swap = () => {
+      lbImg.src = entry.full;
+      lbImg.classList.remove('lb-loading');
+    };
+    if (preloaded[entry.full] && preloaded[entry.full].complete) {
+      swap();
+    } else {
+      lbImg.classList.add('lb-loading');
+      const im = preloaded[entry.full] || new Image();
+      im.src = entry.full;
+      preloaded[entry.full] = im;
+      im.onload = () => { if (gallery[current] === entry) swap(); };
+    }
+
+    // preload neighbors so next/prev clicks feel instant
+    preload(gallery[(current + 1) % gallery.length].full);
+    preload(gallery[(current - 1 + gallery.length) % gallery.length].full);
+  };
+
+  const open = (imgs) => {
+    gallery = imgs;
+    if (!gallery.length) return;
+    imgs.forEach((g) => preload(g.full));
+    show(0);
+    lightbox.classList.add('open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.classList.add('lb-open');
+  };
+
+  const close = () => {
+    lightbox.classList.remove('open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.classList.remove('lb-open');
+  };
+
+  cards.forEach((card) => {
+    card.addEventListener('click', () => {
+      const imgs = parseImages(card.getAttribute('data-images'));
+      if (imgs.length) open(imgs);
+    });
+  });
+
+  document.getElementById('lbClose').addEventListener('click', close);
+  document.getElementById('lbNext').addEventListener('click', () => show(current + 1));
+  document.getElementById('lbPrev').addEventListener('click', () => show(current - 1));
+  lightbox.addEventListener('click', (e) => { if (e.target === lightbox) close(); });
+
+  document.addEventListener('keydown', (e) => {
+    if (!lightbox.classList.contains('open')) return;
+    if (e.key === 'Escape') close();
+    else if (e.key === 'ArrowRight') show(current + 1);
+    else if (e.key === 'ArrowLeft') show(current - 1);
+  });
+
+  // Touch swipe (mobile): swipe left → next photo, swipe right → previous.
+  let touchX = 0, touchY = 0;
+  lightbox.addEventListener('touchstart', (e) => {
+    touchX = e.changedTouches[0].clientX;
+    touchY = e.changedTouches[0].clientY;
+  }, { passive: true });
+  lightbox.addEventListener('touchend', (e) => {
+    const dx = e.changedTouches[0].clientX - touchX;
+    const dy = e.changedTouches[0].clientY - touchY;
+    // Horizontal swipe only, past a small threshold so taps/vertical scrolls don't trigger it.
+    if (Math.abs(dx) > 45 && Math.abs(dx) > Math.abs(dy)) {
+      if (dx < 0) show(current + 1);
+      else show(current - 1);
+    }
+  }, { passive: true });
+}</script>
+
+<script>
+// Multi-step navigation for the homepage quote card.
+(function () {
+  var form = document.getElementById('quoteForm');
+  if (!form) return;
+  var steps = Array.prototype.slice.call(form.querySelectorAll('.qstep'));
+  var names = { 1: 'Order details', 2: 'Your info' };
+  var current = 1;
+  var errBox = form.querySelector('[data-quote-error]');
+  var dateEl = document.getElementById('hq-date');
+  if (dateEl) dateEl.min = new Date().toISOString().split('T')[0];
+
+  // Auto-format the phone number as (___)-___-____
+  var phoneEl = form.querySelector('[name=phone]');
+  if (phoneEl) phoneEl.addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '').slice(0, 10);
+    var out = '';
+    if (d.length > 6) out = '(' + d.slice(0, 3) + ')-' + d.slice(3, 6) + '-' + d.slice(6);
+    else if (d.length > 3) out = '(' + d.slice(0, 3) + ')-' + d.slice(3);
+    else if (d.length > 0) out = '(' + d;
+    this.value = out;
+  });
+
+  // Auto-format budget as a dollar amount, e.g. $2,000
+  var budgetEl = document.getElementById('hq-budget');
+  if (budgetEl) budgetEl.addEventListener('input', function () {
+    var d = this.value.replace(/\D/g, '');
+    this.value = d ? '$' + Number(d).toLocaleString('en-US') : '';
+  });
+
+  // "Get a Quote" behavior differs by device:
+  //  - Desktop/PC: scroll all the way to the top of the page (unchanged).
+  //  - Mobile: scroll to the top edge of the quote-form box, offset for the
+  //    fixed header, and close the mobile menu.
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href$="#get-quote"]');
+    if (!a) return;
+    e.preventDefault();
+
+    var isMobile = window.matchMedia('(max-width: 1240px)').matches;
+
+    // Always close the mobile menu if it's open (never leaves the page locked —
+    // the menu only toggles a class, it doesn't lock body scroll).
+    var navbar = document.getElementById('navbar');
+    if (navbar) navbar.classList.remove('open');
+
+    if (!isMobile) {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    var card = document.getElementById('get-quote');
+    if (!card) { window.scrollTo({ top: 0, behavior: 'smooth' }); return; }
+    var bar = document.querySelector('.navbar');
+    var headerH = bar ? bar.getBoundingClientRect().height : 0;
+    var y = card.getBoundingClientRect().top + window.pageYOffset - headerH - 12;
+    window.scrollTo({ top: Math.max(0, y), behavior: 'smooth' });
+  });
+
+  function showErr(msg) { if (errBox) { errBox.textContent = msg; errBox.style.display = 'block'; } }
+  function clearErr() { if (errBox) errBox.style.display = 'none'; }
+
+  function go(n) {
+    current = n;
+    steps.forEach(function (s) { s.hidden = (parseInt(s.getAttribute('data-step'), 10) !== n); });
+    form.querySelectorAll('.qsteps-progress .dot').forEach(function (d, i) { d.classList.toggle('active', i < n); });
+    document.getElementById('qstepNum').textContent = n;
+    document.getElementById('qstepName').textContent = names[n];
+    clearErr();
+    var first = steps[n - 1].querySelector('input, select, textarea');
+    if (first) try { first.focus({ preventScroll: true }); } catch (e) { first.focus(); }
+  }
+
+  // Validate just the fields on the current step before advancing.
+  function validateStep(n) {
+    var scope = steps[n - 1];
+    var f = function (sel) { var el = scope.querySelector(sel); return el ? el.value.trim() : ''; };
+    if (n === 1) {
+      if (!f('[name=event_type]')) return 'Please choose an event or order type.';
+      if (!f('[name=requested_date]')) return 'Please choose a requested date.';
+      if (!f('[name=budget]')) return 'Please enter a budget (a rough amount is fine).';
+    } else if (n === 2) {
+      if (f('[name=name]').length < 2) return 'Please enter your name.';
+      if (f('[name=phone]').replace(/[^0-9]/g, '').length < 10) return 'Please enter a valid phone number.';
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f('[name=email]'))) return 'Please enter a valid email address.';
+    }
+    return null;
+  }
+
+  form.addEventListener('click', function (e) {
+    var next = e.target.closest('[data-next]');
+    var back = e.target.closest('[data-back]');
+    if (next) {
+      var msg = validateStep(current);
+      if (msg) { showErr(msg); return; }
+      go(current + 1);
+    } else if (back) {
+      go(current - 1);
+    }
+  });
+})();
+</script>
+
+<!-- GoHighLevel / LeadConnector chat widget (for A2P verification). This page only. -->
+<script src="https://widgets.leadconnectorhq.com/loader.js" data-resources-url="https://widgets.leadconnectorhq.com/chat-widget/loader.js" data-widget-id="6a763760d256ac9952903e6d" data-source="WEB_USER"></script>
+</body>
+</html>

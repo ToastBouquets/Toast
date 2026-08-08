@@ -1,15 +1,18 @@
 /* ============================================================================
-   Toast Bouquets — Quote form → Formspree
+   Toast Bouquets — Quote form → GoHighLevel
    ----------------------------------------------------------------------------
-   THE ONLY LINE YOU EDIT: paste your Formspree endpoint below (see SETUP.md).
-   Until you do, the form runs in DEMO MODE (shows the success screen but does
-   NOT send anything) so you can preview it safely.
+   THE ONLY LINE YOU EDIT: paste your GoHighLevel Inbound Webhook URL below.
+   (In GoHighLevel: Automation → Workflows → new workflow → add trigger
+   "Inbound Webhook" → copy the URL it gives you → paste it here.)
+
+   Until you paste it, the form runs in DEMO MODE (shows the success screen but
+   does NOT send anything) so the live site keeps working safely.
    ========================================================================== */
 
 var TB_CONFIG = {
-  // Formspree → your form → Integration → copy the endpoint. Looks like:
-  // https://formspree.io/f/abcdwxyz
-  FORMSPREE_ENDPOINT: 'https://formspree.io/f/meeyjwll'
+  // Paste your GoHighLevel Inbound Webhook URL here. It looks like:
+  // https://services.leadconnectorhq.com/hooks/XXXXX/webhook-trigger/YYYYY
+  GHL_WEBHOOK_URL: 'https://services.leadconnectorhq.com/hooks/Yvrw300nz4Kt2bFhd2QJ/webhook-trigger/5f9cb812-ddd4-4339-b057-168084ffbfcd'
 };
 
 /* ==========================================================================
@@ -19,48 +22,51 @@ var TB_CONFIG = {
   'use strict';
 
   var CONFIGURED =
-    TB_CONFIG.FORMSPREE_ENDPOINT.indexOf('formspree.io/f/') !== -1 &&
-    TB_CONFIG.FORMSPREE_ENDPOINT.indexOf('YOUR_FORM_ID') === -1;
+    TB_CONFIG.GHL_WEBHOOK_URL.indexOf('http') === 0 &&
+    TB_CONFIG.GHL_WEBHOOK_URL.indexOf('PASTE_YOUR') === -1;
 
   var TBQuotes = {
     isConfigured: CONFIGURED,
 
-    // Send one quote to Formspree. Returns a Promise that resolves on success.
+    // Send one quote to GoHighLevel. Returns a Promise that resolves on success.
     submit: function (data) {
-      // Clean, readable field names — these are exactly what you'll see in the
-      // Formspree dashboard and the notification email.
+      // Clean field names — these are what you'll map inside your GoHighLevel
+      // workflow (and what shows on the contact record).
+      var name = (data.name || '').trim();
+      var firstName = name.split(' ')[0] || '';
+      var lastName  = name.split(' ').slice(1).join(' ') || '';
+
       var payload = {
-        name:           (data.name || '').trim(),
-        email:          (data.email || '').trim(),   // Formspree uses this as reply-to
+        // Standard GoHighLevel contact fields (map these to the contact in your
+        // workflow's "Create/Update Contact" step):
+        full_name:      name,
+        first_name:     firstName,
+        last_name:      lastName,
+        email:          (data.email || '').trim(),
         phone:          (data.phone || '').trim(),
+        // Quote details (add these as custom fields or put them in a note):
         order_type:     (data.event_type || '').trim(),
         requested_date: (data.requested_date || '').trim(),
         budget:         (data.budget || '').trim(),
         submitted_at:   new Date().toLocaleString(),
-        source:         (data.source || '') + ' — ' + location.href,
-        _subject:       'New quote request: ' + (data.name || 'customer') + ' — ' + (data.event_type || '')
+        source:         (data.source || 'website') + ' — ' + location.href
       };
 
       if (!CONFIGURED) {
         // DEMO MODE — no network call.
         return new Promise(function (resolve) {
-          console.info('[TBQuotes] DEMO mode — not sent. Add your Formspree endpoint in js/quote-form.js to go live.', payload);
+          console.info('[TBQuotes] DEMO mode — not sent. Add your GoHighLevel webhook URL in js/quote-form.js to go live.', payload);
           setTimeout(resolve, 500);
         });
       }
 
-      return fetch(TB_CONFIG.FORMSPREE_ENDPOINT, {
+      return fetch(TB_CONFIG.GHL_WEBHOOK_URL, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(payload)
       }).then(function (res) {
-        if (res.ok) return res.json().catch(function () { return {}; });
-        return res.json().then(function (body) {
-          var msg = (body && body.errors && body.errors.length)
-            ? body.errors.map(function (e) { return e.message; }).join(', ')
-            : 'Submission failed (' + res.status + ').';
-          throw new Error(msg);
-        });
+        if (res.ok) return res.text().then(function (t) { try { return JSON.parse(t); } catch (e) { return {}; } });
+        throw new Error('Submission failed (' + res.status + ').');
       });
     }
   };

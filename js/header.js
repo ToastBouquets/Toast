@@ -21,12 +21,12 @@
         '<a href="' + p + '#location">Location</a>' +
         '<div class="menu-only menu-actions">' +
           '<a href="' + p + '#get-quote" class="btn btn-gold menu-quote">Get Quote</a>' +
-          '<a href="tel:9802131254" class="menu-phone">' + phoneSvg + '(980) 213-1254</a>' +
+          '<a href="tel:9804730352" class="menu-phone">' + phoneSvg + '(980) 473-0352</a>' +
         '</div>' +
       '</div>' +
       '<div class="nav-cta">' +
         '<a href="' + p + '#get-quote" class="btn btn-gold nav-quote-btn" style="padding:11px 22px;">Get a Quote</a>' +
-        '<a href="tel:9802131254" class="nav-phone">' + phoneSvg + '(980) 213-1254</a>' +
+        '<a href="tel:9804730352" class="nav-phone">' + phoneSvg + '(980) 473-0352</a>' +
         '<button class="nav-toggle" id="navToggle" aria-label="Menu">&#9776;</button>' +
       '</div>' +
     '</div></nav>';
@@ -37,7 +37,7 @@
   var barHtml =
     '<div class="mobile-cta-bar" id="mobileCtaBar">' +
       '<a href="' + p + '#get-quote" class="btn btn-gold mcta-quote">Get a Free Quote</a>' +
-      '<a href="tel:9802131254" class="mcta-call">' + phoneSvg + '<span>Call</span></a>' +
+      '<a href="tel:9804730352" class="mcta-call">' + phoneSvg + '<span>Call</span></a>' +
     '</div>';
   document.body.insertAdjacentHTML('beforeend', barHtml);
   var ctaBar = document.getElementById('mobileCtaBar');

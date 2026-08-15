@@ -49,7 +49,8 @@ var TB_CONFIG = {
         requested_date: (data.requested_date || '').trim(),
         budget:         (data.budget || '').trim(),
         submitted_at:   new Date().toLocaleString(),
-        source:         (data.source || 'website') + ' — ' + location.href
+        source:         (data.source || 'website') + ' — ' + location.href,
+        sms_consent:    'Yes — agreed to be contacted by call, text & email (web form)'
       };
 
       if (!CONFIGURED) {
@@ -81,6 +82,19 @@ var TB_CONFIG = {
     var errorBox  = form.querySelector('[data-quote-error]');
     var submitting = false;
 
+    // Lock the submit button until the consent box is checked.
+    var consentBox = form.querySelector('[name="sms_consent"]');
+    if (consentBox && submitBtn) {
+      var syncConsent = function () {
+        var ok = consentBox.checked;
+        submitBtn.disabled = !ok;
+        submitBtn.style.opacity = ok ? '' : '0.5';
+        submitBtn.style.cursor  = ok ? '' : 'not-allowed';
+      };
+      consentBox.addEventListener('change', syncConsent);
+      syncConsent();
+    }
+
     function showError(msg) {
       if (errorBox) { errorBox.textContent = msg; errorBox.style.display = 'block'; }
       else { alert(msg); }
@@ -107,6 +121,8 @@ var TB_CONFIG = {
       if (!data.name || data.name.trim().length < 2) return showError('Please enter your name.');
       if ((data.phone || '').replace(/[^0-9]/g, '').length < 10) return showError('Please enter a valid phone number.');
       if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(data.email || '')) return showError('Please enter a valid email address.');
+      var consentEl = form.querySelector('[name="sms_consent"]');
+      if (consentEl && !consentEl.checked) return showError('Please check the box to agree before we can send your request.');
 
       // Loading state + lock
       submitting = true;
@@ -119,7 +135,7 @@ var TB_CONFIG = {
         submitting = false;
         if (submitBtn) { submitBtn.disabled = false; submitBtn.textContent = submitBtn.dataset.label || 'Submit'; }
         console.error('[TBQuotes] submit failed', err);
-        showError('Sorry — something went wrong sending your request. Please call or text us at (980) 213-1254 and we\'ll help right away.');
+        showError('Sorry — something went wrong sending your request. Please call or text us at (980) 473-0352 and we\'ll help right away.');
       });
     });
   }

@@ -90,15 +90,6 @@ section.clause h3 {
 .clause p { margin-bottom: 14px; color: var(--text-soft); }
 .clause ul { margin: 0 0 14px 22px; color: var(--text-soft); }
 .clause ul li { margin-bottom: 7px; }
-.placeholder {
-  background: rgba(212,175,55,0.16);
-  border-radius: 4px;
-  padding: 1px 6px;
-  color: #8a6d16;
-  font-weight: 600;
-  font-size: 0.92em;
-  white-space: nowrap;
-}
 
 .toc {
   background: var(--cream-light);
@@ -120,50 +111,11 @@ section.clause h3 {
 .toc a { color: var(--text-soft); }
 .toc a:hover { color: var(--gold); text-decoration: none; }
 
-.checklist {
-  background: var(--green);
-  color: var(--cream-light);
-  border-radius: 12px;
-  padding: 36px 34px;
-  margin-top: 56px;
-}
-.checklist h2 { color: var(--cream-light); font-size: 1.5rem; margin-bottom: 10px; }
-.checklist > p { color: #C9D0CB; font-size: 0.95rem; margin-bottom: 22px; }
-.checklist ul { list-style: none; margin: 0; }
-.checklist li {
-  display: flex;
-  gap: 12px;
-  align-items: flex-start;
-  padding: 11px 0;
-  border-top: 1px solid rgba(255,255,255,0.12);
-  color: #E4E9E5;
-  font-size: 0.95rem;
-}
-.checklist li:first-child { border-top: none; }
-.checklist li::before {
-  content: "\2610";
-  color: var(--gold);
-  font-size: 1.2rem;
-  line-height: 1.2;
-  flex-shrink: 0;
-}
-.checklist strong { color: var(--cream-light); }
-
-.attorney {
-  border: 1px dashed rgba(31,58,46,0.35);
-  border-radius: 8px;
-  padding: 20px 24px;
-  margin-top: 40px;
-  color: var(--text-soft);
-  font-size: 0.92rem;
-}
-.attorney strong { color: var(--green); }
-
 @media (max-width: 640px) {
   .wrap { padding: 44px 20px 70px; }
   h1 { font-size: 2rem; }
   .toc { columns: 1; }
-  .checklist, .intro-note, .attorney { padding: 22px 20px; }
+  .intro-note { padding: 22px 20px; }
 }
 </style>
 </head>
@@ -174,14 +126,12 @@ section.clause h3 {
   <span class="eyebrow">Toast Bouquets LLC</span>
   <h1>Privacy Policy</h1>
   <div class="dates">
-    <span><strong>Effective Date:</strong> <span class="placeholder">[EFFECTIVE DATE]</span></span>
-    <span><strong>Last Updated:</strong> <span class="placeholder">[LAST UPDATED DATE]</span></span>
+    <span><strong>Effective Date:</strong> August 14, 2026</span>
+    <span><strong>Last Updated:</strong> August 14, 2026</span>
   </div>
 
   <div class="intro-note">
-    This is a working draft prepared for business purposes. Bracketed items such as
-    <span class="placeholder">[PAYMENT PROCESSOR]</span> mark facts that must be confirmed and filled in before publishing.
-    Please review the checklist at the end and have this policy reviewed by a qualified North Carolina attorney before you publish it.
+    Toast Bouquets LLC respects your privacy. We collect your information for one simple reason: to prepare your quote, fulfill your order, and stay in touch about it. <strong>We do not sell your personal information.</strong> This policy explains what we collect, how we use it, and the choices you have.
   </div>
 
   <nav class="toc" aria-label="Table of contents">
@@ -189,274 +139,141 @@ section.clause h3 {
     <ol>
       <li><a href="#s1">Introduction &amp; Scope</a></li>
       <li><a href="#s2">Information We Collect</a></li>
-      <li><a href="#s3">Contact &amp; Identification Information</a></li>
-      <li><a href="#s4">Quote, Order, Wedding, Funeral &amp; Event Information</a></li>
-      <li><a href="#s5">Delivery &amp; Recipient Information</a></li>
-      <li><a href="#s6">Uploaded Inspiration Photos &amp; Customer Content</a></li>
-      <li><a href="#s7">Payment &amp; Transaction Information</a></li>
-      <li><a href="#s8">Website &amp; Device Information Collected Automatically</a></li>
-      <li><a href="#s9">Cookies &amp; Similar Technologies</a></li>
-      <li><a href="#s10">Website Analytics</a></li>
-      <li><a href="#s11">Advertising &amp; Remarketing Tools</a></li>
-      <li><a href="#s12">Information From Social Media, Email, Calls &amp; Texts</a></li>
-      <li><a href="#s13">How We Use Your Information</a></li>
-      <li><a href="#s14">How We May Share Information With Service Providers</a></li>
-      <li><a href="#s15">Payment Processors</a></li>
-      <li><a href="#s16">Website Hosting &amp; Form Providers</a></li>
-      <li><a href="#s17">CRM, Email, Cloud Storage &amp; Business Systems</a></li>
-      <li><a href="#s18">Employees, Contractors &amp; Event Personnel</a></li>
-      <li><a href="#s19">Legal Disclosures &amp; Fraud Prevention</a></li>
-      <li><a href="#s20">Sale or Sharing for Advertising</a></li>
-      <li><a href="#s21">Data Retention</a></li>
-      <li><a href="#s22">Information Security</a></li>
-      <li><a href="#s23">Your Privacy Choices &amp; Requests</a></li>
-      <li><a href="#s24">Correcting or Deleting Information</a></li>
-      <li><a href="#s25">Marketing Email &amp; Text-Message Opt-Outs</a></li>
-      <li><a href="#s26">Transactional Calls, Texts &amp; Emails</a></li>
-      <li><a href="#s27">Customer, Wedding, Event Photos, Testimonials &amp; Social Content</a></li>
-      <li><a href="#s28">Information About Gift Recipients &amp; Other People</a></li>
-      <li><a href="#s29">Children&rsquo;s Privacy</a></li>
-      <li><a href="#s30">Third-Party Websites &amp; Platforms</a></li>
-      <li><a href="#s31">State-Specific Privacy Rights</a></li>
-      <li><a href="#s32">Data-Breach Response</a></li>
-      <li><a href="#s33">Updates to This Privacy Policy</a></li>
-      <li><a href="#s34">Contact Information</a></li>
+      <li><a href="#s3">Delivery &amp; Recipient Information</a></li>
+      <li><a href="#s4">Payment Information</a></li>
+      <li><a href="#s5">Information Collected Automatically &amp; Cookies</a></li>
+      <li><a href="#s6">How We Use Your Information</a></li>
+      <li><a href="#s7">Calls, Texts &amp; Emails</a></li>
+      <li><a href="#s8">How We Share Information</a></li>
+      <li><a href="#s9">We Do Not Sell Your Information</a></li>
+      <li><a href="#s10">Data Retention</a></li>
+      <li><a href="#s11">Information Security</a></li>
+      <li><a href="#s12">Your Privacy Choices &amp; Rights</a></li>
+      <li><a href="#s13">Information About Gift Recipients &amp; Others</a></li>
+      <li><a href="#s14">Children&rsquo;s Privacy</a></li>
+      <li><a href="#s15">Third-Party Websites &amp; Platforms</a></li>
+      <li><a href="#s16">Updates to This Policy</a></li>
+      <li><a href="#s17">Contact Us</a></li>
     </ol>
   </nav>
 
   <section class="clause" id="s1">
     <h2><span class="num">1.</span> Introduction &amp; Scope</h2>
-    <p>Toast Bouquets LLC (&ldquo;Toast Bouquets,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is a floral, gift, wedding, funeral, and event-service business based in Gastonia, North Carolina. We create custom bouquets, floral arrangements, gift baskets, wedding flowers, funeral and sympathy flowers, and event flowers and decor, and we offer pickup, local delivery, online quote requests, and customer consultations.</p>
-    <p>This Privacy Policy explains what information we collect, how we use it, when it may be shared, and the choices you have. It applies to our website at <span class="placeholder">[WEBSITE URL]</span>, our online &ldquo;Get a Quote&rdquo; form, and the ways we communicate with you by email, phone, and text message, as well as information we receive when you contact us through our social media or business listings.</p>
-    <p>This policy does not cover the separate terms that govern orders and services. Refund rules, cancellation terms, deposit terms, floral-substitution practices, delivery liability, and wedding or event agreements are addressed in our Terms of Service and related policies, not in this Privacy Policy. By using our website or submitting a request to us, you acknowledge the practices described here.</p>
+    <p>Toast Bouquets LLC (&ldquo;Toast Bouquets,&rdquo; &ldquo;we,&rdquo; &ldquo;us,&rdquo; or &ldquo;our&rdquo;) is a floral, gift, wedding, funeral, and event-service business based in Gastonia, North Carolina. We create custom bouquets, arrangements, gift baskets, and event flowers, and we offer pickup, local delivery, online quote requests, and consultations.</p>
+    <p>This Privacy Policy applies to our website at toastbouquets.com, our online &ldquo;Get a Quote&rdquo; form, and the ways we communicate with you by email, phone, and text message, as well as information we receive when you contact us through social media or our business listings. Our order and service terms are covered separately in our <a href="terms-of-service.html">Terms of Service</a>.</p>
   </section>
 
   <section class="clause" id="s2">
     <h2><span class="num">2.</span> Information We Collect</h2>
-    <p>We collect information in three general ways: information you provide directly (for example, when you request a quote, place an order, or contact us); information collected automatically when you use our website; and information we receive from third parties and service providers, such as social media platforms and payment processors. The sections below describe these categories in more detail.</p>
+    <p>We collect information you provide directly when you request a quote, place an order, or contact us. This includes your name, phone number, email address, and preferred contact method, along with details about what you&rsquo;re looking for:</p>
+    <ul>
+      <li>Type of service and the occasion (bouquet, gift basket, wedding, funeral, event, etc.)</li>
+      <li>Requested date</li>
+      <li>Budget</li>
+      <li>Venue or delivery location</li>
+      <li>Floral preferences, colors, style notes, and any special instructions</li>
+      <li>Any inspiration photos you choose to share</li>
+    </ul>
+    <p>You are responsible for having the right to share any photos or content you send us.</p>
   </section>
 
   <section class="clause" id="s3">
-    <h2><span class="num">3.</span> Contact &amp; Identification Information</h2>
-    <p>When you contact us or request a quote, we may collect your full name, phone number, email address, and preferred method of contact. If you communicate with us by mail or in person, we may also collect any contact details you choose to share.</p>
+    <h2><span class="num">3.</span> Delivery &amp; Recipient Information</h2>
+    <p>To arrange pickup or local delivery, we may collect the recipient&rsquo;s name, delivery address, phone number, and any delivery instructions or card message you provide. See Section 13 regarding information about other people.</p>
   </section>
 
   <section class="clause" id="s4">
-    <h2><span class="num">4.</span> Quote, Order, Wedding, Funeral &amp; Event Information</h2>
-    <p>Our multi-step &ldquo;Get a Quote&rdquo; form and consultations may collect details about the products and services you are interested in, which can include:</p>
-    <ul>
-      <li>Type of service requested and the occasion</li>
-      <li>Event or delivery date</li>
-      <li>Venue or delivery location</li>
-      <li>Estimated budget</li>
-      <li>Floral preferences, color schemes, and style notes</li>
-      <li>Bouquet or arrangement size</li>
-      <li>Add-on selections</li>
-      <li>Written notes and special instructions</li>
-    </ul>
-    <p>For weddings, funerals, and events, we may collect additional details needed to plan and fulfill your order, such as ceremony or service timing, points of contact, and setup or decorating requirements.</p>
+    <h2><span class="num">4.</span> Payment Information</h2>
+    <p>Payments, deposits, and invoices are processed securely by our third-party payment processor, Square. Your payment card details are provided directly to Square and handled under Square&rsquo;s own privacy and security practices. We do not store full payment-card numbers on our systems; we generally receive only limited confirmation details such as the amount, date, and a partial card reference.</p>
   </section>
 
   <section class="clause" id="s5">
-    <h2><span class="num">5.</span> Delivery &amp; Recipient Information</h2>
-    <p>To arrange pickup or local delivery, we may collect the recipient&rsquo;s name, delivery address, phone number, and any delivery instructions or card messages you provide. Please see Section 28 regarding information you share about other people.</p>
+    <h2><span class="num">5.</span> Information Collected Automatically &amp; Cookies</h2>
+    <p>When you visit our website, basic technical information (such as IP address, browser type, device type, and pages viewed) may be collected automatically to help the site work, stay secure, and load properly. Our site may use essential cookies or similar technologies for these purposes. We do not currently run third-party analytics tools or advertising/remarketing pixels on our website. You can manage cookies through your browser settings, though disabling some may affect how the site functions.</p>
   </section>
 
   <section class="clause" id="s6">
-    <h2><span class="num">6.</span> Uploaded Inspiration Photos &amp; Customer Content</h2>
-    <p>You may upload inspiration photos or share other content to help us understand the design you have in mind. We use these materials to interpret your request and prepare a proposal or quote. Inspiration photos help guide our work but do not guarantee an exact duplicate of any pictured arrangement; flowers are natural products and each design is created by hand, so results will vary.</p>
-    <p>You are responsible for having the right to share any photos or content you upload. Please do not upload material you do not have permission to share.</p>
+    <h2><span class="num">6.</span> How We Use Your Information</h2>
+    <p>We use the information we collect to:</p>
+    <ul>
+      <li>Respond to your inquiries and prepare quotes</li>
+      <li>Plan, create, and fulfill your orders, including weddings, funerals, and events</li>
+      <li>Arrange pickup and local delivery</li>
+      <li>Communicate with you about an active quote or order through your preferred method</li>
+      <li>Process payments and keep accurate business records</li>
+      <li>Operate, secure, and improve our website and services</li>
+      <li>Comply with legal obligations and prevent fraud</li>
+    </ul>
+    <p>Submitting a quote request allows us to contact you about that request. We use your information to serve you &mdash; not to sell it.</p>
   </section>
 
   <section class="clause" id="s7">
-    <h2><span class="num">7.</span> Payment &amp; Transaction Information</h2>
-    <p>If you make a payment, deposit, or purchase, payment card details are generally collected and processed by a third-party payment processor rather than by us. We may receive limited transaction information, such as a confirmation of payment, the amount, the date, and a partial card reference (for example, the last four digits), but we do not maintain full payment-card numbers on our own systems unless separately confirmed. See Section 15 for more about payment processors.</p>
+    <h2><span class="num">7.</span> Calls, Texts &amp; Emails</h2>
+    <p>When you submit our quote form and check the consent box, or otherwise give us your phone number, you agree to receive calls, text messages (SMS), and emails from Toast Bouquets about your request and order. Message frequency varies, and message and data rates may apply.</p>
+    <p>You can opt out of text messages at any time by replying <strong>STOP</strong>, and you can unsubscribe from marketing emails using the link in the email or by contacting us. Opting out of promotional messages does not stop essential messages about an active quote or order.</p>
   </section>
 
   <section class="clause" id="s8">
-    <h2><span class="num">8.</span> Website &amp; Device Information Collected Automatically</h2>
-    <p>When you visit our website, certain information may be collected automatically through your device and browser, such as IP address, browser type, device type, operating system, referring pages, pages viewed, and the dates and times of your visits. This information helps us operate, secure, and improve the website. The specific data collected depends on the tools installed on the site, described below.</p>
+    <h2><span class="num">8.</span> How We Share Information</h2>
+    <p>We do not sell your information. We share it only as needed to run our business, with:</p>
+    <ul>
+      <li><strong>Service providers</strong> who help us operate &mdash; including Square (payments), Vercel (website hosting), and GoHighLevel (our quote form, customer records, and messaging tools). These providers process information only to perform services for us.</li>
+      <li><strong>Staff and contractors</strong> &mdash; such as delivery help, designers, or event staff &mdash; who need limited details (like a delivery address or design notes) to complete your order.</li>
+      <li><strong>Legal and safety purposes</strong> &mdash; when reasonably necessary to comply with the law, enforce our agreements, or protect the rights, property, or safety of Toast Bouquets, our customers, or others.</li>
+    </ul>
   </section>
 
   <section class="clause" id="s9">
-    <h2><span class="num">9.</span> Cookies &amp; Similar Technologies</h2>
-    <p>Our website may use cookies and similar technologies (such as pixels or local storage) to keep the site working properly, remember preferences, and understand how the site is used. You can usually manage cookies through your browser settings, though disabling some cookies may affect how the site functions. The exact cookies used depend on the features and third-party tools active on the site and must be confirmed before publishing.</p>
+    <h2><span class="num">9.</span> We Do Not Sell Your Information</h2>
+    <p>Toast Bouquets does not sell, rent, or trade your personal information, and we do not share it for third-party targeted advertising. The information you give us is used only to provide our products and services to you.</p>
   </section>
 
   <section class="clause" id="s10">
-    <h2><span class="num">10.</span> Website Analytics</h2>
-    <p>We may use an analytics provider such as <span class="placeholder">[ANALYTICS PROVIDER]</span> to understand how visitors find and use our website, in aggregate. Analytics tools may set cookies and collect usage information as described above. This helps us measure interest in our services and improve the site. If no analytics tool is installed, this section should be removed or adjusted.</p>
+    <h2><span class="num">10.</span> Data Retention</h2>
+    <p>We keep personal information for as long as reasonably necessary to provide our services, communicate with you, maintain business and financial records, resolve disputes, and comply with legal obligations. When information is no longer needed, we take reasonable steps to delete it or remove identifying details.</p>
   </section>
 
   <section class="clause" id="s11">
-    <h2><span class="num">11.</span> Advertising &amp; Remarketing Tools</h2>
-    <p>If we use advertising or remarketing tools&mdash;such as Google Ads or the Meta (Facebook/Instagram) Pixel&mdash;these tools may use cookies or similar technologies to measure ad performance and show relevant ads on other websites and platforms. Whether any of these tools are used, and which ones, must be confirmed before publishing. If no advertising tools are installed, this section should be removed or adjusted accordingly.</p>
+    <h2><span class="num">11.</span> Information Security</h2>
+    <p>We use reasonable safeguards to protect the information we hold. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk.</p>
   </section>
 
   <section class="clause" id="s12">
-    <h2><span class="num">12.</span> Information From Social Media, Email, Calls &amp; Texts</h2>
-    <p>When you reach out through Instagram, Facebook, our Google Business Profile, email, phone calls, or text messages, we receive the information you share in those messages, along with basic details those platforms make available (such as your username or profile name). We use this information to respond to your questions and requests. Your use of third-party platforms is also governed by those platforms&rsquo; own privacy policies.</p>
+    <h2><span class="num">12.</span> Your Privacy Choices &amp; Rights</h2>
+    <p>You may contact us to ask what personal information we hold about you, to correct it, or to request that we delete it, subject to applicable law and reasonable verification of your identity. We may need to keep some information to complete an order, maintain records, or meet legal obligations. Depending on where you live, you may have additional privacy rights under state law; to exercise any of these, please contact us using Section 17.</p>
   </section>
 
   <section class="clause" id="s13">
-    <h2><span class="num">13.</span> How We Use Your Information</h2>
-    <p>We use the information we collect to:</p>
-    <ul>
-      <li>Respond to inquiries and prepare quotes and proposals</li>
-      <li>Plan, create, and fulfill orders, including weddings, funerals, and events</li>
-      <li>Arrange pickup and local delivery</li>
-      <li>Communicate with you about an active quote, order, or event through your preferred contact method</li>
-      <li>Process payments and maintain business records</li>
-      <li>Operate, secure, and improve our website and services</li>
-      <li>Send promotional messages where you have opted in (see Sections 25&ndash;26)</li>
-      <li>Comply with legal obligations and prevent fraud</li>
-    </ul>
-    <p>Submitting a quote request allows us to contact you about that request through the contact method you choose. It does not, by itself, sign you up for unrelated promotional marketing; those communications are handled separately as described in Sections 25 and 26.</p>
+    <h2><span class="num">13.</span> Information About Gift Recipients &amp; Others</h2>
+    <p>When you order a gift or delivery, you may provide information about another person, such as a recipient&rsquo;s name, address, and phone number. By providing this information, you confirm you have permission to share it with us for the purpose of fulfilling the order. We use recipient information only to complete delivery and related communications.</p>
   </section>
 
   <section class="clause" id="s14">
-    <h2><span class="num">14.</span> How We May Share Information With Service Providers</h2>
-    <p>We may share information with trusted service providers who help us run our business, such as payment processors, website hosting and form providers, communication and email tools, and cloud storage or business-management systems. These providers are expected to use the information only to perform services for us. We may also share information as described in Sections 18 and 19, and as otherwise required or permitted by law.</p>
+    <h2><span class="num">14.</span> Children&rsquo;s Privacy</h2>
+    <p>Our website and services are intended for adults and are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us information, please contact us so we can remove it.</p>
   </section>
 
   <section class="clause" id="s15">
-    <h2><span class="num">15.</span> Payment Processors</h2>
-    <p>Payments may be handled by a third-party payment processor such as <span class="placeholder">[PAYMENT PROCESSOR]</span>. When you pay, your payment details are provided to that processor, and the processor&rsquo;s handling of your information is governed by its own privacy policy and security practices. As noted in Section 7, we generally receive only limited transaction information and do not maintain full card numbers on our systems unless separately confirmed.</p>
+    <h2><span class="num">15.</span> Third-Party Websites &amp; Platforms</h2>
+    <p>Our website and messages may link to or rely on third-party services we do not control, such as Square, social media networks, and mapping services. This Privacy Policy does not apply to those third parties, and we encourage you to review their own privacy policies.</p>
   </section>
 
   <section class="clause" id="s16">
-    <h2><span class="num">16.</span> Website Hosting &amp; Form Providers</h2>
-    <p>Our website is hosted by <span class="placeholder">[WEBSITE HOST]</span>, and our &ldquo;Get a Quote&rdquo; form may be provided or stored through <span class="placeholder">[CRM OR FORM PROVIDER]</span>. These providers may process or store information you submit through the site on our behalf. The specific hosting and form providers must be confirmed before publishing.</p>
+    <h2><span class="num">16.</span> Updates to This Policy</h2>
+    <p>We may update this Privacy Policy from time to time to reflect changes in our practices or legal requirements. When we do, we will update the &ldquo;Last Updated&rdquo; date above. Your continued use of our website or services after an update indicates your awareness of the revised policy.</p>
   </section>
 
   <section class="clause" id="s17">
-    <h2><span class="num">17.</span> CRM, Email, Cloud Storage &amp; Business Systems</h2>
-    <p>We may use customer-relationship management (CRM), email, scheduling, cloud storage, and other business-management tools to organize inquiries, manage orders, and communicate with customers. Information you provide may be stored within these systems so we can serve you and keep accurate records. The specific systems in use must be confirmed before publishing.</p>
-  </section>
-
-  <section class="clause" id="s18">
-    <h2><span class="num">18.</span> Employees, Contractors &amp; Event Personnel</h2>
-    <p>To fulfill your order, we may share necessary information with our staff and with contractors, delivery workers, floral designers, event staff, and venue contacts involved in your order or event. We limit shared information to what is reasonably needed to complete the work, such as delivery addresses, timing, and design details.</p>
-  </section>
-
-  <section class="clause" id="s19">
-    <h2><span class="num">19.</span> Legal Disclosures &amp; Fraud Prevention</h2>
-    <p>We may disclose information when we believe in good faith that it is reasonably necessary to comply with a law, regulation, legal process, or governmental request; to enforce our agreements; to detect, prevent, or address fraud, security, or technical issues; or to protect the rights, property, or safety of Toast Bouquets, our customers, or others, as required or permitted by law.</p>
-  </section>
-
-  <section class="clause" id="s20">
-    <h2><span class="num">20.</span> Sale or Sharing for Advertising</h2>
-    <p>We do not sell your personal information for money. Depending on the advertising and analytics tools used on our website (see Sections 10&ndash;11), certain online activity information may be shared with those providers in ways that some state laws treat as &ldquo;sharing&rdquo; for targeted advertising. This section must be confirmed and adjusted based on the specific tools installed. If you wish to limit such tools, see Sections 9 and 23.</p>
-  </section>
-
-  <section class="clause" id="s21">
-    <h2><span class="num">21.</span> Data Retention</h2>
-    <p>We keep personal information for as long as reasonably necessary to provide our services, communicate with you, maintain business and financial records, resolve disputes, and comply with legal obligations. Retention periods vary by the type of information and the reason we hold it. When information is no longer needed, we take reasonable steps to delete it or remove identifying details. Specific retention periods must be confirmed based on the systems in use.</p>
-  </section>
-
-  <section class="clause" id="s22">
-    <h2><span class="num">22.</span> Information Security</h2>
-    <p>We use reasonable safeguards intended to protect the information we hold. However, no method of transmission or storage is completely secure, and we cannot guarantee absolute security. You share information with us at your own risk, and you are responsible for keeping any account or communication credentials confidential.</p>
-  </section>
-
-  <section class="clause" id="s23">
-    <h2><span class="num">23.</span> Your Privacy Choices &amp; Requests</h2>
-    <p>You may contact us to ask about the personal information we hold about you and to make privacy requests, subject to applicable law and reasonable verification of your identity. You can also manage cookies through your browser and opt out of marketing messages as described in Section 25. We will respond to requests as required or permitted by law.</p>
-  </section>
-
-  <section class="clause" id="s24">
-    <h2><span class="num">24.</span> Correcting or Deleting Information</h2>
-    <p>If you believe information we hold about you is inaccurate, or you would like us to delete certain information, please contact us. We will take reasonable steps to update or delete information where appropriate. We may need to retain some information to complete an order, maintain records, or comply with legal obligations, and some information may remain in backups for a limited time.</p>
-  </section>
-
-  <section class="clause" id="s25">
-    <h2><span class="num">25.</span> Marketing Email &amp; Text-Message Opt-Outs</h2>
-    <p>If you have opted in to receive promotional emails or promotional text messages, you may opt out at any time. For emails, you can use the unsubscribe link or contact us. For text messages, you can reply with the opt-out keyword provided (for example, &ldquo;STOP&rdquo;) or contact us. Message and data rates may apply to text messages. Opting out of promotional messages does not stop transactional communications about an active quote or order (see Section 26).</p>
-  </section>
-
-  <section class="clause" id="s26">
-    <h2><span class="num">26.</span> Transactional Calls, Texts &amp; Emails</h2>
-    <p>We distinguish between different types of communication:</p>
-    <ul>
-      <li><strong>Order &amp; quote communications:</strong> messages about an active quote, order, delivery, or event, sent through your preferred contact method.</li>
-      <li><strong>Customer-service calls and messages:</strong> responses to your questions and follow-ups related to your requests.</li>
-      <li><strong>Promotional emails:</strong> optional marketing emails you have opted in to receive.</li>
-      <li><strong>Promotional text messages:</strong> optional marketing texts you have opted in to receive.</li>
-    </ul>
-    <p>Even if you opt out of promotional messages, we may still contact you as reasonably necessary about an active quote, order, or event, or for customer-service and legal purposes.</p>
-  </section>
-
-  <section class="clause" id="s27">
-    <h2><span class="num">27.</span> Customer, Wedding, Event Photos, Testimonials &amp; Social Content</h2>
-    <p>Submitting a private photo&mdash;such as a photo of your event, wedding, or a finished arrangement&mdash;does not automatically grant us permission to use it publicly for marketing. We will seek appropriate permission before using identifiable customer photography, private-event photos, testimonials, or reviews for advertising or on our social media, or such use will be governed by a separate agreement.</p>
-    <p>If you voluntarily post about us publicly or tag us on social media, we may view or engage with that content in the ordinary way those platforms allow. Any broader public use of your content for our marketing will be handled through appropriate permission.</p>
-  </section>
-
-  <section class="clause" id="s28">
-    <h2><span class="num">28.</span> Information About Gift Recipients &amp; Other People</h2>
-    <p>When you order a gift or delivery, you may provide information about another person, such as a recipient&rsquo;s name, address, and phone number. By providing this information, you confirm that you have the necessary permission to share it with us for the purpose of fulfilling the order. We use recipient information to complete delivery and related communications.</p>
-  </section>
-
-  <section class="clause" id="s29">
-    <h2><span class="num">29.</span> Children&rsquo;s Privacy</h2>
-    <p>Our website and services are intended for adults and are not directed to children under 13. We do not knowingly collect personal information from children under 13. If you believe a child has provided us personal information, please contact us so we can take appropriate steps to remove it.</p>
-  </section>
-
-  <section class="clause" id="s30">
-    <h2><span class="num">30.</span> Third-Party Websites &amp; Platforms</h2>
-    <p>Our website, social media pages, and messages may link to or rely on third-party websites and platforms that we do not control, such as payment processors, social media networks, and mapping or directions services. This Privacy Policy does not apply to those third parties, and we encourage you to review their own privacy policies.</p>
-  </section>
-
-  <section class="clause" id="s31">
-    <h2><span class="num">31.</span> State-Specific Privacy Rights</h2>
-    <p>Depending on where you live, you may have certain rights regarding your personal information under applicable state law, such as the right to request access to, correction of, or deletion of certain information, subject to legal exceptions. To make a request, please contact us using the information in Section 34. We will honor rights that apply to you as required by law and may need to verify your identity before responding.</p>
-  </section>
-
-  <section class="clause" id="s32">
-    <h2><span class="num">32.</span> Data-Breach Response</h2>
-    <p>If we become aware of a security incident affecting personal information, we will take reasonable steps to investigate and address it, and we will provide notifications to affected individuals and authorities where required by applicable law.</p>
-  </section>
-
-  <section class="clause" id="s33">
-    <h2><span class="num">33.</span> Updates to This Privacy Policy</h2>
-    <p>We may update this Privacy Policy from time to time to reflect changes in our practices, tools, or legal requirements. When we do, we will update the &ldquo;Last Updated&rdquo; date above. Significant changes may be communicated through our website or other reasonable means. Your continued use of our website or services after an update indicates your awareness of the revised policy.</p>
-  </section>
-
-  <section class="clause" id="s34">
-    <h2><span class="num">34.</span> Contact Information</h2>
+    <h2><span class="num">17.</span> Contact Us</h2>
     <p>If you have questions about this Privacy Policy or your information, please contact us:</p>
     <ul>
       <li><strong>Toast Bouquets LLC</strong></li>
-      <li>Email: <span class="placeholder">[BUSINESS EMAIL]</span></li>
-      <li>Phone: <span class="placeholder">[PHONE NUMBER]</span></li>
-      <li>Address: <span class="placeholder">[FULL BUSINESS ADDRESS]</span>, Gastonia, North Carolina <span class="placeholder">[CORRECT ZIP CODE]</span></li>
-      <li>Website: <span class="placeholder">[WEBSITE URL]</span></li>
+      <li>Email: <a href="mailto:toast@toastbouquets.com">toast@toastbouquets.com</a></li>
+      <li>Phone: <a href="tel:9804730352">(980) 473-0352</a></li>
+      <li>Location: Gastonia, North Carolina 28054</li>
+      <li>Website: <a href="https://toastbouquets.com">toastbouquets.com</a></li>
     </ul>
   </section>
-
-  <div class="checklist">
-    <h2>Information Toast Bouquets Must Confirm Before Publishing</h2>
-    <p>Complete or verify each item below so the policy accurately reflects the tools and practices actually used on your website and in your business.</p>
-    <ul>
-      <li><strong>Business details:</strong> effective date, last-updated date, full business address, correct ZIP code, business email, phone number, and website URL.</li>
-      <li><strong>Website host:</strong> the company that hosts the site (fill in <span class="placeholder">[WEBSITE HOST]</span>).</li>
-      <li><strong>Quote-form provider &amp; storage:</strong> what powers the &ldquo;Get a Quote&rdquo; form and where submissions are stored (fill in <span class="placeholder">[CRM OR FORM PROVIDER]</span>).</li>
-      <li><strong>Payment processor:</strong> confirm the processor(s) used and confirm you do not store full card numbers (fill in <span class="placeholder">[PAYMENT PROCESSOR]</span>).</li>
-      <li><strong>Analytics tools:</strong> confirm whether an analytics provider is installed and which one (fill in <span class="placeholder">[ANALYTICS PROVIDER]</span>); remove Section 10 if none.</li>
-      <li><strong>Advertising tools:</strong> confirm whether Google Ads, Meta Pixel, or other remarketing tools are used; adjust or remove Section 11 accordingly.</li>
-      <li><strong>Cookies:</strong> confirm which cookies and similar technologies the site actually sets.</li>
-      <li><strong>Photo uploads:</strong> confirm where uploaded inspiration photos are stored and for how long.</li>
-      <li><strong>CRM, email &amp; cloud storage:</strong> list the business systems that store customer information.</li>
-      <li><strong>Third-party vendors:</strong> confirm delivery partners, designers, event staff, and any other vendors who receive information.</li>
-      <li><strong>Marketing messages:</strong> confirm how customers opt in to promotional emails and texts, and the text-message opt-out keyword.</li>
-      <li><strong>Data retention:</strong> confirm how long each type of information is kept.</li>
-      <li><strong>Sale/sharing for advertising (Section 20):</strong> adjust based on the advertising and analytics tools confirmed above.</li>
-    </ul>
-  </div>
-
-  <div class="attorney">
-    <strong>Legal note:</strong> This document is a draft prepared for business drafting purposes only and is not legal advice. Privacy requirements can vary by the tools you use and by law. We recommend having this Privacy Policy reviewed by a qualified North Carolina attorney before publication.
-  </div>
 </div>
 </body>
 </html>

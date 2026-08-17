@@ -36,6 +36,14 @@ var TB_CONFIG = {
       var firstName = name.split(' ')[0] || '';
       var lastName  = name.split(' ').slice(1).join(' ') || '';
 
+      // Normalize the phone into clean +1 E.164 format so GoHighLevel always accepts it.
+      // Strips (), -, spaces, and + ; drops autofill's leading "1"/"+1"; re-adds a single +1.
+      var phoneDigits = (data.phone || '').replace(/[^0-9]/g, '');   // digits only
+      if (phoneDigits.length === 11 && phoneDigits.charAt(0) === '1') {
+        phoneDigits = phoneDigits.slice(1);                          // "19805551234" -> "9805551234"
+      }
+      var phoneE164 = phoneDigits.length === 10 ? '+1' + phoneDigits : phoneDigits;
+
       var payload = {
         // Standard GoHighLevel contact fields (map these to the contact in your
         // workflow's "Create/Update Contact" step):
@@ -43,7 +51,7 @@ var TB_CONFIG = {
         first_name:     firstName,
         last_name:      lastName,
         email:          (data.email || '').trim(),
-        phone:          (data.phone || '').trim(),
+        phone:          phoneE164,
         // Quote details (add these as custom fields or put them in a note):
         order_type:     (data.event_type || '').trim(),
         requested_date: (data.requested_date || '').trim(),
